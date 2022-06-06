@@ -35,12 +35,12 @@ type Logger struct {
 	*logrus.Entry
 }
 
-func GetLogger() Logger {
-	return Logger{e}
+func GetLogger() *Logger {
+	return &Logger{e}
 }
 
-func (L *Logger) GetLoggerWithField(k string, v interface{}) Logger {
-	return Logger{L.WithField(k, v)}
+func (L *Logger) GetLoggerWithField(k string, v interface{}) *Logger {
+	return &Logger{L.WithField(k, v)}
 }
 
 func init() {
